@@ -1,0 +1,312 @@
+/* === 1. COMPONENTES COMPARTIDOS (Menú y Footer) === */
+const components = {
+    navbar: `
+    <nav class="navbar">
+        <a href="index.html" class="logo">LUIS<span>MEX</span></a>
+
+        <div class="header-socials desktop-only">
+            <a href="https://wa.me/5214776772422" target="_blank" class="brand-wa">
+                <i class="fab fa-whatsapp"></i> 477 677 2422
+            </a>
+            <span class="divider">|</span>
+            <a href="#" class="brand-fb"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="brand-ig"><i class="fab fa-instagram"></i></a>
+        </div>
+
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" data-link="home">Inicio</a></li>
+            <li><a href="dj.html" data-link="dj">DJ & Eventos</a></li>
+            <li><a href="av.html" data-link="av">Audio/Video</a></li>
+            <li><a href="web.html" data-link="web">Web</a></li>
+            <li><a href="design.html" data-link="design">Diseño</a></li>
+        </ul>
+    </nav>
+    `,
+    footer: `
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>LUIS<span>MEX</span></h3>
+                <p>MultiServicios Digitales.<br>Calidad, Creatividad y Tecnología.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn ig"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5214776772422" class="social-btn wa"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explora</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="dj.html">DJ & Eventos</a></li>
+                    <li><a href="web.html">Páginas Web</a></li>
+                    <li><a href="av.html">Audio & Video</a></li>
+                    <li><a href="design.html">Diseño Gráfico</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li><i class="fab fa-whatsapp brand-wa"></i> 477 677 2422</li>
+                    <li><i class="fab fa-telegram" style="color:#0088cc"></i> 477 677 2422</li>
+                    <li><i class="fas fa-map-marker-alt"></i> León, Guanajuato</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Derechos Reservados 2026 &copy; Elaborado por <strong>LUISMEX MultiServicios Digitales</strong></p>
+        </div>
+    </footer>
+    `
+};
+
+/* === 2. BASE DE DATOS DE CONTENIDOS === */
+const db = {
+    // === AUDIOS (Ruta: audios/archivo.mp3) ===
+    audio: [
+        {
+            t: "El Pollo Azteca",
+            d: "Incluye: Jingle cantado y realizado a 2 voces.",
+            i: "fa-bullhorn",
+            src: "audios/elpolloazteca.mp3"
+        },
+        {
+            t: "Tortillería La Esperanza",
+            d: "Elaborado a 2 voces (masculina y femenina).",
+            i: "fa-landmark",
+            src: "audios/tortilleriaesperanza.mp3"
+        },
+        {
+            t: "Purificadora de Agua La Gotita",
+            d: "Voces masculina y femenina y Jingle Cantado.",
+            i: "fa-compact-disc",
+            src: "audios/purificadora.mp3"
+        },
+        {
+            t: "Intro Banda",
+            d: "Voz potente estilo grupero.",
+            i: "fa-car",
+            src: "audios/introbanda.mp3"
+        },
+        {
+            t: "Spot Baile Popular",
+            d: "Con voz potente masculina estilo grupero.",
+            i: "fa-microchip",
+            src: "audios/baile.mp3"
+        },
+        {
+            t: "Dr. Battery Center",
+            d: "Voz masculina institucional.",
+            i: "fa-compact-disc",
+            src: "audios/drbatery.mp3"
+        }
+    ],
+
+    // === VIDEOS (Ruta: videos/archivo.mp4) ===
+    // IMPORTANTE: Crea una carpeta llamada 'videos' y pon ahí tus archivos mp4 con estos nombres
+    video: [
+        {
+            t: "Video Navidad",
+            d: "Cliente: Dr. Battery Center.",
+            src: "videos/batterynavidad.mp4"
+        },
+        {
+            t: "Pastelería",
+            d: "Cliente:  Dulce Momento.",
+            src: "videos/pasteleria.mp4"
+        },
+        {
+            t: "Purificadora de Agua",
+            d: "Cliente: Eco Agua.",
+            src: "videos/ecoagua.mp4"
+        },
+        {
+            t: "Tortillería y Rosticería",
+            d: "Cliente: Los Pinos.",
+            src: "videos/lospinos.mp4"
+        },
+        {
+            t: "Pollos Rostizados",
+            d: "Cliente: Rancho Yebra",
+            src: "videos/ranchoyebra.mp4"
+        },
+
+              {
+            t: "Pollo Fresco",
+            d: "Cliente: Mi Guerita.",
+            src: "videos/pollofresco.mp4"
+        }
+    ],
+
+    // === WEB ===
+    web: [
+        { t: "Landing Page", d: "Una sola página para ventas.", i: "fa-funnel-dollar" },
+        { t: "E-Commerce", d: "Tienda con carrito de compras.", i: "fa-tshirt" },
+        { t: "Sitio Corporativo", d: "Multi-página para empresas.", i: "fa-building" },
+        { t: "Blog Noticias", d: "Gestor de contenidos.", i: "fa-newspaper" },
+        { t: "Menú QR", d: "Catálogo digital interactivo.", i: "fa-qrcode" },
+        { t: "Booking Citas", d: "Sistema de calendario.", i: "fa-calendar-check" }
+    ],
+
+    // === DISEÑO GRÁFICO ===
+    flyers: [
+        { t: "Flyer Apertura", d: "Colores vibrantes.", i: "fa-store" },
+        { t: "Flyer Oferta", d: "Diseño agresivo de venta.", i: "fa-tag" },
+        { t: "Flyer Concierto", d: "Estilo artístico.", i: "fa-guitar" }
+    ],
+    logos: [
+        { t: "Minimalista", d: "Isotipo limpio.", i: "fa-vector-square" },
+        { t: "Ilustrativo", d: "Mascota vectorizada.", i: "fa-hamburger" },
+        { t: "Rediseño", d: "Modernización de marca.", i: "fa-paint-brush" }
+    ],
+    cards: [
+        { t: "vCard Abogado", d: "Botones de llamada.", i: "fa-gavel" },
+        { t: "vCard Médico", d: "Citas directas.", i: "fa-user-md" },
+        { t: "vCard Ventas", d: "Catálogo integrado.", i: "fa-shopping-bag" }
+    ],
+    invites: [
+        { t: "Boda Web", d: "Con RSVP y Mapa.", i: "fa-rings-wedding" },
+        { t: "XV Años Web", d: "Galería y Confirmación.", i: "fa-crown" }
+    ],
+
+    // === DJ ===
+    dj: [
+        { t: "Paquete Vintage", d: "Cabina de madera rústica y luces cálidas.", img: "https://images.unsplash.com/photo-1519751138087-5bf79df62d58?auto=format&fit=crop&w=600", icon: "fa-music" },
+        { t: "Paquete Vintage Plus", d: "Incluye pista iluminada y pirotecnia.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600", icon: "fa-record-vinyl" },
+        { t: "Paquete Led", d: "Cabina Pixel LED y robóticas.", img: "https://images.unsplash.com/photo-1563841930606-67e26ce48b19?auto=format&fit=crop&w=600", icon: "fa-bolt" },
+        { t: "Paquete Led Plus", d: "Pantallas Gigantes y Robot LED.", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600", icon: "fa-star" },
+        { t: "Tributo Alejandro Fdz", d: "Show en vivo, voz gemela. 1 Hora.", img: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&w=600", icon: "fa-microphone", spec: true },
+        { t: "Paquete PRO Masivo", d: "Audio Line-Array y escenario.", img: "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600", icon: "fa-crown" }
+    ]
+};
+
+/* === 3. INICIALIZACIÓN === */
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Inyectar Menú y Footer
+    const navContainer = document.getElementById('navbar-inject');
+    const footContainer = document.getElementById('footer-inject');
+    if(navContainer) navContainer.innerHTML = components.navbar;
+    if(footContainer) footContainer.innerHTML = components.footer;
+
+    // Activar Enlace del Menú
+    const page = document.body.getAttribute('data-page');
+    const activeLink = document.querySelector(`.nav-links a[data-link="${page}"]`);
+    if(activeLink) activeLink.classList.add('active-link');
+
+    // Configurar Menú Móvil
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if(menuToggle) {
+        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    }
+
+    // Cargar Contenido Específico
+    if (page === 'av') loadAV();
+    if (page === 'web') loadWeb();
+    if (page === 'design') loadDesign();
+    if (page === 'dj') loadDJ();
+});
+
+/* === FUNCIONES DE CARGA === */
+function loadAV() {
+    const ac = document.getElementById('audio-container');
+    const vc = document.getElementById('video-container');
+    if(ac) ac.innerHTML = db.audio.map(i => cardHTML(i, 'audio')).join('');
+    if(vc) vc.innerHTML = db.video.map(i => cardHTML(i, 'video')).join('');
+}
+
+function loadWeb() {
+    const wc = document.getElementById('web-container');
+    if(wc) wc.innerHTML = db.web.map(i => cardHTML(i, 'web')).join('');
+}
+
+function loadDesign() {
+    const ids = ['flyer-container', 'logo-container', 'card-container', 'invite-container'];
+    const sources = [db.flyers, db.logos, db.cards, db.invites];
+    ids.forEach((id, index) => {
+        const el = document.getElementById(id);
+        if(el) el.innerHTML = sources[index].map(i => cardHTML(i, 'design')).join('');
+    });
+}
+
+function loadDJ() {
+    const dc = document.getElementById('dj-container');
+    if(dc) dc.innerHTML = db.dj.map(i => `
+        <div class="dj-card ${i.spec ? 'tribute-card' : ''}">
+            <div class="dj-img-wrapper">
+                <img src="${i.img}" alt="${i.t}">
+            </div>
+            <div class="dj-icon-overlay"><i class="fas ${i.icon}"></i></div>
+            <div class="dj-content">
+                ${i.spec ? '<div class="badge-gold">SHOW ESTELAR</div>' : ''}
+                <h4>${i.t}</h4>
+                <p>${i.d}</p>
+                <button class="btn-whatsapp-float" onclick="cotizar('${i.t}')">
+                    <i class="fab fa-whatsapp"></i> Cotizar
+                </button>
+            </div>
+        </div>
+    `).join('');
+}
+
+/* === PLANTILLA GENERADORA DE TARJETAS === */
+function cardHTML(item, type) {
+    let media = '';
+    let showDetailsButton = true;
+
+    // CASO 1: VIDEO (Reproductor Homogéneo)
+    if(type === 'video') {
+        // Aquí aplicamos la clase 'std-video' que definimos en CSS
+        media = `
+        <video controls class="std-video">
+            <source src="${item.src}" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>`;
+        showDetailsButton = false;
+    }
+    // CASO 2: AUDIO (Reproductor)
+    else if(type === 'audio') {
+        media = `
+        <i class="fas ${item.i || 'fa-music'} service-icon"></i>
+        <audio controls style="width:100%; margin-top:10px;">
+            <source src="${item.src}" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>`;
+        showDetailsButton = false;
+    }
+    // CASO 3: OTROS (Icono y Botón)
+    else {
+        media = `<i class="fas ${item.i} service-icon"></i>`;
+    }
+
+    return `
+        <div class="service-card">
+            ${media}
+            <h4>${item.t}</h4>
+            <p>${item.d}</p>
+            ${showDetailsButton ? `<button class="btn-text" onclick="cotizar('${item.t}')">Ver Detalles</button>` : ''}
+        </div>
+    `;
+}
+/* === FUNCIONES DE WHATSAPP === */
+function cotizar(servicio) {
+    const tel = "5214776772422";
+    const txt = `Hola LUISMEX, me interesa cotizar: ${servicio}`;
+    window.open(`https://wa.me/${tel}?text=${encodeURIComponent(txt)}`, '_blank');
+}
+
+function sendToWhatsApp(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const serv = document.getElementById('service').value;
+    const msg = document.getElementById('message').value;
+    const tel = "5214776772422";
+    const txt = `Hola, soy ${name}. Interés: ${serv}. ${msg}`;
+    window.open(`https://wa.me/${tel}?text=${encodeURIComponent(txt)}`, '_blank');
+}
