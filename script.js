@@ -118,7 +118,7 @@ const db = {
         {
             t: "Pastelería",
             d: "Cliente:  Dulce Momento.",
-            src: "videos/Pasteleria.mp4"
+            src: "videos/pasteleria.mp4"
         },
         {
             t: "Purificadora de Agua",
@@ -174,14 +174,45 @@ const db = {
         { t: "XV Años Web", d: "Galería y Confirmación.", i: "fa-crown" }
     ],
 
-    // === DJ ===
+    // === DJ (Carpeta: images/) ===
     dj: [
-        { t: "Paquete Vintage", d: "Cabina de madera rústica y luces cálidas.", img: "https://images.unsplash.com/photo-1519751138087-5bf79df62d58?auto=format&fit=crop&w=600", icon: "fa-music" },
-        { t: "Paquete Vintage Plus", d: "Incluye pista iluminada y pirotecnia.", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600", icon: "fa-record-vinyl" },
-        { t: "Paquete Led", d: "Cabina Pixel LED y robóticas.", img: "https://images.unsplash.com/photo-1563841930606-67e26ce48b19?auto=format&fit=crop&w=600", icon: "fa-bolt" },
-        { t: "Paquete Led Plus", d: "Pantallas Gigantes y Robot LED.", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600", icon: "fa-star" },
-        { t: "Tributo Alejandro Fdz", d: "Show en vivo, voz gemela. 1 Hora.", img: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&w=600", icon: "fa-microphone", spec: true },
-        { t: "Paquete PRO Masivo", d: "Audio Line-Array y escenario.", img: "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&w=600", icon: "fa-crown" }
+        {
+            t: "Paquete Vintage",
+            d: "3-5 Hrs. horario corrido, Sonido profesional, Cabina madera tipo Vintage, Micrófono inalámbrico",
+            img: "images/vintage.jpg",
+            icon: "fa-music"
+        },
+        {
+            t: "Paquete Vintage Plus",
+            d: "3-5 Hrs. horario corrido, Sonido profesional, Cabina madera tipo Vintage, 1 Pantalla 50plgs., Micrófono inalámbrico",
+            img: "images/vintageplus.jpg",
+            icon: "fa-record-vinyl"
+        },
+        {
+            t: "Paquete Led",
+            d: "3-5 Hrs. horario corrido, Sonido profesional, Cabina iluminada, Micrófono inalámbrico",
+            img: "images/led.jpg",
+            icon: "fa-bolt"
+        },
+        {
+            t: "Paquete Led Plus",
+            d: "3-5 Hrs. horario corrido, Sonido profesional, Pantalla 50 plgs., Cabina iluminada, Micrófono inalámbrico",
+            img: "images/ledplus.jpg",
+            icon: "fa-star"
+        },
+        {
+            t: "Tributo Alejandro Fdz",
+            d: "Cantante repertorio de Alejandro Fernández 1-2 hrs. Paquete completo 1 hra. cantante + Paquete Led Plus (total 5 horas).",
+            img: "images/tributo.jpg",
+            icon: "fa-microphone",
+            spec: true
+        },
+        {
+            t: "Paquete PRO",
+            d: "3-5 Hrs. horario corrido, Sonido profesional, 2 Pantallas 50 plgs., Cabina iluminada, Micrófono inalámbrico",
+            img: "images/pro.jpg",
+            icon: "fa-crown"
+        }
     ]
 };
 
@@ -310,4 +341,3 @@ function sendToWhatsApp(e) {
     const txt = `Hola, soy ${name}. Interés: ${serv}. ${msg}`;
     window.open(`https://wa.me/${tel}?text=${encodeURIComponent(txt)}`, '_blank');
 }
-
