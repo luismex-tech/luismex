@@ -118,7 +118,7 @@ const db = {
         {
             t: "Pastelería",
             d: "Cliente:  Dulce Momento.",
-            src: "videos/pasteleria.mp4"
+            src: "videos/Pasteleria.mp4"
         },
         {
             t: "Purificadora de Agua",
@@ -310,3 +310,4 @@ function sendToWhatsApp(e) {
     const txt = `Hola, soy ${name}. Interés: ${serv}. ${msg}`;
     window.open(`https://wa.me/${tel}?text=${encodeURIComponent(txt)}`, '_blank');
 }
+
