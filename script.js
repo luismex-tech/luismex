@@ -67,7 +67,7 @@ const components = {
 
 /* === 2. BASE DE DATOS DE CONTENIDOS === */
 const db = {
-    // === AUDIOS (Ruta: audios/archivo.mp3) ===
+    // === AUDIOS ===
     audio: [
         {
             t: "El Pollo Azteca",
@@ -107,8 +107,7 @@ const db = {
         }
     ],
 
-    // === VIDEOS (Ruta: videos/archivo.mp4) ===
-    // IMPORTANTE: Crea una carpeta llamada 'videos' y pon ahí tus archivos mp4 con estos nombres
+    // === VIDEOS (Tus videos personalizados) ===
     video: [
         {
             t: "Video Navidad",
@@ -135,22 +134,51 @@ const db = {
             d: "Cliente: Rancho Yebra",
             src: "videos/ranchoyebra.mp4"
         },
-
-              {
+        {
             t: "Pollo Fresco",
             d: "Cliente: Mi Guerita.",
             src: "videos/pollofresco.mp4"
         }
     ],
 
-    // === WEB ===
+    // === WEB (PORTAFOLIO) - Aquí está el cambio de enlaces ===
     web: [
-        { t: "Landing Page", d: "Una sola página para ventas.", i: "fa-funnel-dollar" },
-        { t: "E-Commerce", d: "Tienda con carrito de compras.", i: "fa-tshirt" },
-        { t: "Sitio Corporativo", d: "Multi-página para empresas.", i: "fa-building" },
-        { t: "Blog Noticias", d: "Gestor de contenidos.", i: "fa-newspaper" },
-        { t: "Menú QR", d: "Catálogo digital interactivo.", i: "fa-qrcode" },
-        { t: "Booking Citas", d: "Sistema de calendario.", i: "fa-calendar-check" }
+        {
+            t: "Agencia de Viajes",
+            d: "Galería de destinos y botón a WhatsApp.",
+            img: "images/web_viajes.jpg",
+            url: "viajes.html"  // <--- ¡AQUÍ ESTÁ TU ENLACE!
+        },
+        {
+            t: "Restaurant Familiar",
+            d: "Menú digital simple y ubicación.",
+            img: "images/web_restaurante.jpg",
+            url: "restaurante.html"
+        },
+        {
+            t: "Servicios de Mudanza",
+            d: "Sitio informativo con contacto rápido.",
+            img: "images/web_mudanza.jpg",
+            url: "mudanzas.html"
+        },
+        {
+            t: "Despacho de Abogados",
+            d: "Perfil profesional y servicios.",
+            img: "images/web_abogados.jpg",
+            url: "abogados.html"
+        },
+        {
+            t: "Purificadora de Agua",
+            d: "Formulario de pedido a domicilio.",
+            img: "images/web_agua.jpg",
+            url: "aguapuri.html"
+        },
+        {
+            t: "Florería Boutique",
+            d: "Catálogo visual de arreglos.",
+            img: "images/web_floreria.jpg",
+            url: "flores.html"
+        }
     ],
 
     // === DISEÑO GRÁFICO ===
@@ -174,7 +202,7 @@ const db = {
         { t: "XV Años Web", d: "Galería y Confirmación.", i: "fa-crown" }
     ],
 
-    // === DJ (Carpeta: images/) ===
+    // === DJ ===
     dj: [
         {
             t: "Paquete Vintage",
@@ -286,14 +314,36 @@ function loadDJ() {
     `).join('');
 }
 
-/* === PLANTILLA GENERADORA DE TARJETAS === */
+/* === PLANTILLA GENERADORA DE TARJETAS (CORREGIDA) === */
 function cardHTML(item, type) {
     let media = '';
     let showDetailsButton = true;
 
-    // CASO 1: VIDEO (Reproductor Homogéneo)
+    // CASO 1: WEB (PORTAFOLIO) - ¡AQUÍ ESTABA EL DETALLE!
+    // Ahora toda la imagen y el título son clicables
+    if(type === 'web') {
+        return `
+        <div class="service-card web-portfolio-card">
+            <div class="web-thumb">
+                <a href="${item.url}" target="_blank">
+                    <img src="${item.img}" alt="${item.t}">
+                </a>
+                <div class="web-overlay">
+                    <a href="${item.url}" target="_blank" class="btn-glass">
+                        <i class="fas fa-eye"></i> Ver Ejemplo
+                    </a>
+                </div>
+            </div>
+            <div class="web-info">
+                <h4><a href="${item.url}" target="_blank" style="text-decoration:none; color:inherit;">${item.t}</a></h4>
+                <p>${item.d}</p>
+            </div>
+        </div>
+        `;
+    }
+
+    // CASO 2: VIDEO (Reproductor)
     if(type === 'video') {
-        // Aquí aplicamos la clase 'std-video' que definimos en CSS
         media = `
         <video controls class="std-video">
             <source src="${item.src}" type="video/mp4">
@@ -301,7 +351,7 @@ function cardHTML(item, type) {
         </video>`;
         showDetailsButton = false;
     }
-    // CASO 2: AUDIO (Reproductor)
+    // CASO 3: AUDIO (Reproductor)
     else if(type === 'audio') {
         media = `
         <i class="fas ${item.i || 'fa-music'} service-icon"></i>
@@ -311,7 +361,7 @@ function cardHTML(item, type) {
         </audio>`;
         showDetailsButton = false;
     }
-    // CASO 3: OTROS (Icono y Botón)
+    // CASO 4: OTROS (Icono y Botón)
     else {
         media = `<i class="fas ${item.i} service-icon"></i>`;
     }
@@ -325,6 +375,7 @@ function cardHTML(item, type) {
         </div>
     `;
 }
+
 /* === FUNCIONES DE WHATSAPP === */
 function cotizar(servicio) {
     const tel = "5214776772422";

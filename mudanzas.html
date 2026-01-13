@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudanzas TITÁN | Fletes y Mudanzas Seguras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & CONFIG --- */
+        :root {
+            --brand-dark: #1a252f;
+            --brand-blue: #2980b9;
+            --brand-yellow: #f1c40f; /* Color de seguridad/alerta */
+            --brand-grey: #ecf0f1;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --slant-deg: -3deg; /* Ángulo para los cortes diagonales */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden; /* Necesario por los elementos inclinados */
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- UTILITIES & ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--brand-dark);
+            color: var(--text-light);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 4px solid var(--brand-yellow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--brand-yellow);
+        }
+
+        .logo span { color: var(--text-light); }
+
+        .contact-top {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .contact-top a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .contact-top a:hover { color: var(--brand-yellow); }
+
+        /* --- HERO SECTION (DIAGONAL) --- */
+        .hero-wrap {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background: #000;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(26, 37, 47, 0.85), rgba(41, 128, 185, 0.7)), url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--text-light);
+        }
+
+        .hero-badge {
+            background-color: var(--brand-yellow);
+            color: var(--brand-dark);
+            padding: 5px 15px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            transform: skew(-10deg);
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+        }
+
+        .hero-btns {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+        }
+
+        .btn-primary {
+            background-color: var(--brand-yellow);
+            color: var(--brand-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #fff;
+            transform: translateY(-5px);
+        }
+
+        /* --- SEPARADORES DIAGONALES --- */
+        .diagonal-section {
+            position: relative;
+            padding: 100px 0;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+            margin: -50px 0; /* Overlap negativo para unir cortes */
+            z-index: 10;
+        }
+
+        .bg-grey { background-color: var(--brand-grey); }
+        .bg-white { background-color: #fff; z-index: 11; }
+        .bg-dark { background-color: var(--brand-dark); color: white; z-index: 12; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .bar {
+            width: 80px;
+            height: 5px;
+            background: var(--brand-yellow);
+            margin: 0 auto;
+        }
+
+        /* --- SERVICIOS (Cards Hover Effect) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid transparent;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--brand-yellow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--brand-blue);
+            margin-bottom: 20px;
+        }
+
+        /* --- STATS COUNTER --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--brand-yellow);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- GALERÍA (Masonry Style Clean) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-img {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-img:hover img {
+            transform: scale(1.15) rotate(1deg);
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .gallery-img:hover .overlay { opacity: 1; }
+
+        /* --- CONTACTO RÁPIDO (Bottom Sticky) --- */
+        .cta-section {
+            background: var(--brand-blue);
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+            position: relative;
+        }
+
+        .whatsapp-big-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            margin-top: 30px;
+            border: 2px solid white;
+        }
+
+        .whatsapp-big-btn:hover {
+            background-color: white;
+            color: #25D366;
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111;
+            color: #555;
+            padding: 50px 0 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            color: white;
+            font-size: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .hero-btns { flex-direction: column; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact-top { display: none; }
+            .diagonal-section { clip-path: none; margin: 0; padding: 60px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">MUDANZAS <span>TITÁN</span></div>
+            <div class="contact-top">
+                <a href="#"><i class="fas fa-envelope"></i> info@mudanzastitan.mx</a>
+                <a href="#"><i class="fas fa-phone"></i> (477) 123-4567</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-wrap">
+        <div class="hero-bg"></div>
+        <div class="hero-content reveal active">
+            <div class="hero-badge">SERVICIO 24/7</div>
+            <h1>Movemos tu vida<br>con seguridad<br>y rapidez.</h1>
+            <p style="font-size: 1.2rem; max-width: 500px; margin-bottom: 20px;">Especialistas en mudanzas residenciales, corporativas y fletes express en León y todo México.</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Cotizar Ahora</a>
+                <button class="btn" style="background:transparent; border: 2px solid white; color: white;">Ver Servicios</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="diagonal-section bg-grey">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Nuestras Soluciones</h2>
+                <div class="bar"></div>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-truck-moving"></i></div>
+                    <h3>Mudanza Residencial</h3>
+                    <p>Cuidamos tus muebles como si fueran nuestros. Emplayado completo y maniobras cuidadosas.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-building"></i></div>
+                    <h3>Cambio de Oficinas</h3>
+                    <p>Logística eficiente para minimizar el tiempo de inactividad de tu empresa. Desarmado y armado.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="icon-box"><i class="fas fa-boxes"></i></div>
+                    <h3>Servicio de Empaque</h3>
+                    <p>¿No tienes tiempo? Nosotros empacamos todo en cajas reforzadas y etiquetadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diagonal-section bg-dark">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>+15</h3>
+                    <p>Años de Experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2,500</h3>
+                    <p>Mudanzas Exitosas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Clientes Satisfechos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>32</h3>
+                    <p>Estados Cubiertos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diagonal-section bg-white">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galería de Trabajo</h2>
+                <div class="bar"></div>
+                <p style="margin-top: 10px; color: #666;">Así trabajamos en TITÁN</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Camión Mudanza">
+                    <div class="overlay"><h4>Flota Moderna</h4></div>
+                </div>
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1603796846097-b36d72808728?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cajas Empacadas">
+                    <div class="overlay"><h4>Empaque Seguro</h4></div>
+                </div>
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Carga">
+                    <div class="overlay"><h4>Personal Capacitado</h4></div>
+                </div>
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1580674285054-bed31e140f5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Descarga">
+                    <div class="overlay"><h4>Maniobras</h4></div>
+                </div>
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ruta">
+                    <div class="overlay"><h4>Rutas Nacionales</h4></div>
+                </div>
+                <div class="gallery-img reveal">
+                    <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cliente Feliz">
+                    <div class="overlay"><h4>Entrega a Tiempo</h4></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="cta-section">
+        <div class="container reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 20px;">¿Listo para mudarte?</h2>
+            <p style="font-size: 1.2rem;">Cotiza tu servicio en menos de 5 minutos vía WhatsApp.</p>
+            <a href="https://wa.me/524771234567" class="whatsapp-big-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> COTIZAR (477) 123-4567
+            </a>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.8;">Atendemos urgencias las 24 horas</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-brand">MUDANZAS TITÁN</div>
+            <p>Calle Ficticia Industrial #99, León, Gto. México.</p>
+            <p style="margin-top: 30px;">&copy; 2024 Mudanzas Titán. Todos los derechos reservados.</p>
+            <p style="color: var(--brand-yellow); margin-top: 10px;">Desarrollado por LUISMEX</p>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+
+        function reveal(){
+            var reveals = document.querySelectorAll('.reveal');
+
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Trigger once on load
+        reveal();
+    </script>
+    <style>
+    .btn-back-home {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 99999; /* Para que siempre esté encima de todo */
+        background-color: #222; /* Color oscuro neutral */
+        color: #fff !important;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255,255,255,0.2);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-back-home:hover {
+        background-color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+</style>
+
+<a href="web.html" class="btn-back-home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+    Volver al Portafolio
+</a>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gota Clara - Agua Purificada a Domicilio</title>
+    <meta name="description" content="Pide garrafones de agua purificada de 20 litros con la máxima calidad. Entrega rápida y confiable en tu zona.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== VARIABLES Y ESTILOS GLOBALES ===== */
+        :root {
+            --primary-color: #00A6F3; /* Azul vibrante */
+            --secondary-color: #0033A0; /* Azul oscuro */
+            --background-color: #F7FBFF; /* Un blanco azulado muy claro */
+            --text-color: #121A2C;
+            --white-color: #FFFFFF;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        /* ===== HEADER Y HERO SECTION ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: var(--white-color);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, var(--secondary-color), var(--primary-color));
+            z-index: -2;
+        }
+
+        /* Efecto Aurora UI */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            width: 150vw;
+            height: 150vh;
+            transform: translate(-50%, -50%);
+            background:
+                radial-gradient(circle at 10% 20%, rgba(0, 166, 243, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 80% 90%, rgba(0, 51, 160, 0.5) 0%, transparent 50%);
+            animation: aurora 20s linear infinite;
+        }
+
+        @keyframes aurora {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .hero-content {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== MÓDULO DE PEDIDO ===== */
+        .order-box {
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .counter-btn {
+            background: none;
+            border: 2px solid var(--white-color);
+            color: var(--white-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .counter-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .counter-btn:active {
+            transform: scale(0.9);
+        }
+
+        .counter-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 2rem;
+            min-width: 50px; /* Evita que el layout salte */
+        }
+
+        .cta-button {
+            background-color: var(--white-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== OTRAS SECCIONES ===== */
+        section {
+            padding: 4rem 5%;
+        }
+
+        .purity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .purity-card {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 51, 160, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .purity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 51, 160, 0.15);
+        }
+
+        .purity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .how-it-works-section {
+            background-color: var(--white-color);
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border: 4px solid var(--background-color);
+            box-shadow: 0 0 0 4px var(--primary-color);
+        }
+
+        .coverage-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .coverage-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .coverage-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .coverage-info li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .map-container {
+            flex: 2;
+            min-width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 51, 160, 0.08);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px); /* Para Safari */
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: var(--font-family);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 166, 243, 0.3);
+        }
+
+        .modal-content .cta-button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        /* ===== Media Queries para Responsividad ===== */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .coverage-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-background"></div>
+        <nav>
+            <div class="logo">Gota Clara</div>
+        </nav>
+        <div class="hero-content">
+            <h1 class="hero-title">La Pureza que Mereces.</h1>
+            <h2 class="hero-subtitle">Directo a tu puerta.</h2>
+            <p>Agua purificada en garrafones de 20L. Calidad premium, servicio local.</p>
+
+            <div class="order-box">
+                <h3>¿Cuántos garrafones necesitas hoy?</h3>
+                <div class="counter">
+                    <button id="decrease" class="counter-btn">—</button>
+                    <span id="quantity" class="counter-value">1</span>
+                    <button id="increase" class="counter-btn">+</button>
+                </div>
+                <button id="openModalBtn" class="cta-button">HACER PEDIDO AHORA</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="purity" class="purity-section">
+            <h2 class="section-title">Calidad en Cada Gota</h2>
+            <div class="purity-grid">
+                <div class="purity-card">
+                    <div class="purity-icon">💧</div>
+                    <h3>Máxima Pureza</h3>
+                    <p>Nuestra planta garantiza un agua libre de sedimentos, con un sabor neutro y refrescante.</p>
+                </div>
+                <div class="purity-card">
+                    <div class="purity-icon">🛡️</div>
+                    <h3>Libre de Cloro y Metales</h3>
+                    <p>Eliminamos el 100% de cloro y metales pesados. Solo obtienes H₂O en su mejor estado.</p>
+                </div>
+                <div class="purity-card">
+                    <div class="purity-icon">🌿</div>
+                    <h3>Filtración Avanzada</h3>
+                    <p>Proceso de 8 etapas, incluyendo luz UV y ozono, para eliminar cualquier bacteria o virus.</p>
+                </div>
+                <div class="purity-card">
+                    <div class="purity-icon">❤️</div>
+                    <h3>Agua Saludable y Ligera</h3>
+                    <p>El balance perfecto de minerales para cuidar la salud de toda tu familia.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works-section">
+            <h2 class="section-title">Tan Fácil como Contar hasta 3</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Pide</h3>
+                    <p>Elige cuántos garrafones y completa tus datos en menos de un minuto.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Confirma y Recibe</h3>
+                    <p>Te contactamos por WhatsApp y nuestro repartidor llegará a tu puerta.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Disfruta</h3>
+                    <p>Hidrátate con la mejor calidad de agua, sin complicaciones.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="coverage" class="coverage-section">
+             <h2 class="section-title">¿Llegamos a tu Hogar?</h2>
+             <div class="coverage-content">
+                <div class="coverage-info">
+                    <h3>Nuestra Zona de Reparto</h3>
+                    <ul>
+                        <li>Colonia Centro</li>
+                        <li>Residencial El Bosque</li>
+                        <li>Jardines del Moral</li>
+                        <li>Valle del Campestre</li>
+                        <li>Y zonas aledañas (consulta por WhatsApp)</li>
+                    </ul>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118943.10702213138!2d-101.7374465972656!3d21.15093749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bcf06141c9f63%3A0xcd18420c25c34515!2zTGVhbsQsIEd0by4!5e0!3m2!1ses-419!2smx!4v1727024220790!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">Gota Clara</div>
+        <p>© 2025 Gota Clara - Todos los derechos reservados.</p>
+        <p>Servicio y calidad en cada entrega.</p>
+    </footer>
+
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModalBtn" class="close-button">×</button>
+            <h2>Casi Listo. Confirma tu Pedido.</h2>
+            <p id="modalSummary">Estás pidiendo: <strong>1 garrafón</strong> de Agua Gota Clara.</p>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="name">Nombre de quien ordena:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono de Contacto (10 dígitos):</label>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Ingresa 10 dígitos sin espacios ni guiones">
+                </div>
+                <div class="form-group">
+                    <label for="address">Dirección de Entrega:</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comentarios Adicionales:</label>
+                    <textarea id="comments" name="comments" rows="2" placeholder="Ej: Dejar en recepción, casa azul..."></textarea>
+                </div>
+                <button type="submit" class="cta-button">✓ ENVIAR PEDIDO POR WHATSAPP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Espera a que todo el contenido del DOM esté cargado
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === ELEMENTOS DEL DOM ===
+            const quantityDisplay = document.getElementById('quantity');
+            const decreaseBtn = document.getElementById('decrease');
+            const increaseBtn = document.getElementById('increase');
+
+            const openModalBtn = document.getElementById('openModalBtn');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const orderModal = document.getElementById('orderModal');
+            const modalSummary = document.getElementById('modalSummary');
+
+            const orderForm = document.getElementById('orderForm');
+
+            // === ESTADO DE LA APLICACIÓN ===
+            let quantity = 1;
+            // IMPORTANTE: Reemplaza con tu número de WhatsApp real (código de país + 10 dígitos)
+            const GOTA_CLARA_PHONE_NUMBER = '521234567890';
+
+            // === LÓGICA DEL CONTADOR ===
+            function updateQuantityDisplay() {
+                quantityDisplay.textContent = quantity;
+            }
+
+            decreaseBtn.addEventListener('click', () => {
+                if (quantity > 1) {
+                    quantity--;
+                    updateQuantityDisplay();
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                quantity++;
+                updateQuantityDisplay();
+            });
+
+            // === LÓGICA DEL MODAL ===
+            function showModal() {
+                // Actualiza el resumen del pedido en el modal
+                modalSummary.innerHTML = `Estás pidiendo: <strong>${quantity} garrafón${quantity > 1 ? 'es' : ''}</strong> de Agua Gota Clara.`;
+                orderModal.classList.add('visible');
+            }
+
+            function hideModal() {
+                orderModal.classList.remove('visible');
+            }
+
+            openModalBtn.addEventListener('click', showModal);
+            closeModalBtn.addEventListener('click', hideModal);
+
+            // Cierra el modal si se hace clic fuera del contenido
+            orderModal.addEventListener('click', (event) => {
+                if (event.target === orderModal) {
+                    hideModal();
+                }
+            });
+
+            // Cierra el modal con la tecla Escape
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && orderModal.classList.contains('visible')) {
+                    hideModal();
+                }
+            });
+
+            // === LÓGICA DEL FORMULARIO Y WHATSAPP ===
+            orderForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+                // Obtener datos del formulario
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const address = document.getElementById('address').value.trim();
+                const comments = document.getElementById('comments').value.trim();
+
+                // Validar que los campos requeridos no estén vacíos (HTML5 ya lo hace, pero es una buena práctica)
+                if (!name || !phone || !address) {
+                    alert('Por favor, completa todos los campos requeridos.');
+                    return;
+                }
+
+                // Construir el mensaje para WhatsApp
+                let message = `Hola Gota Clara, ¡quiero hacer un pedido! 💧\n\n`;
+                message += `*Cantidad:* ${quantity} garrafón${quantity > 1 ? 'es' : ''}\n`;
+                message += `*Nombre:* ${name}\n`;
+                message += `*Teléfono:* ${phone}\n`;
+                message += `*Dirección:* ${address}\n`;
+
+                if (comments) {
+                    message += `*Comentarios:* ${comments}\n`;
+                }
+
+                message += `\n¡Gracias!`;
+
+                // Codificar el mensaje para la URL
+                const encodedMessage = encodeURIComponent(message);
+
+                // Crear la URL de WhatsApp
+                // Nota: Aquí se usa el número proporcionado en el archivo script.js original
+                const whatsappURL = `https://wa.me/5214776772422?text=${encodedMessage}`;
+
+                // Abrir WhatsApp en una nueva pestaña
+                window.open(whatsappURL, '_blank');
+
+                // Opcional: Cerrar el modal y resetear el formulario después de enviar
+                hideModal();
+                orderForm.reset();
+                quantity = 1;
+                updateQuantityDisplay();
+            });
+
+        });
+    </script>
+    <style>
+    .btn-back-home {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 99999; /* Para que siempre esté encima de todo */
+        background-color: #222; /* Color oscuro neutral */
+        color: #fff !important;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255,255,255,0.2);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-back-home:hover {
+        background-color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+    }
+</style>
+
+<a href="web.html" class="btn-back-home">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+    Volver al Portafolio
+</a>
+</body>
+</html>

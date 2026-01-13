@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Casona | Restaurante Familiar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #d35400; /* Terracota fuerte */
+            --secondary: #2c3e50; /* Azul oscuro elegante */
+            --accent: #f39c12; /* Dorado/Mostaza */
+            --bg-light: #fdfbf7; /* Crema suave */
+            --white: #ffffff;
+            --text: #333333;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { width: 100%; display: block; object-fit: cover; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i { color: var(--accent); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-order {
+            background-color: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 25px;
+            border-radius: 4px;
+        }
+
+        .btn-order:hover {
+            background-color: #a04000;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .btn-hero {
+            padding: 15px 40px;
+            background-color: var(--accent);
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .btn-hero:hover {
+            background-color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 80px 0; }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+        }
+
+        /* --- MENÚ DIGITAL --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 15px;
+        }
+
+        .item-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* --- GALERIA GRID --- */
+        .gallery-wrap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-img img {
+            height: 100%;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-img:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- UBICACIÓN & CONTACTO --- */
+        .location-section {
+            background-color: var(--white);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-frame {
+            background-color: #eee;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-pin {
+            font-size: 3rem;
+            color: var(--primary);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+
+        .info-box {
+            padding: 50px;
+            background-color: var(--secondary);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        .info-item h5 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+        }
+
+        .whatsapp-float {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #999;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .creator-tag {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Menú simplificado */
+            .hero-content h1 { font-size: 2.5rem; }
+            .gallery-wrap { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .info-box { padding: 30px; }
+            .map-frame { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-utensils"></i> LA CASONA
+                </div>
+                <div class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#menu">Menú Digital</a>
+                    <a href="#galeria">Galería</a>
+                    <a href="#ubicacion" class="btn-order">Reservar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Sabor que une a la familia</h1>
+            <p>Tradición culinaria desde 1995. Ingredientes frescos, recetas de la abuela.</p>
+            <a href="#menu" class="btn-hero">VER MENÚ COMPLETO</a>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Menú</h2>
+                <p>Delicias preparadas al momento</p>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>Para Empezar</h3>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Huevos Divorciados</h4>
+                            <p>Dos huevos estrellados bañados en salsa verde y roja, con frijoles refritos.</p>
+                        </div>
+                        <div class="item-price">$110</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Chilaquiles La Casona</h4>
+                            <p>Verdes o rojos con pollo deshebrado, crema, queso y aguacate.</p>
+                        </div>
+                        <div class="item-price">$145</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Guacamole Tradicional</h4>
+                            <p>Preparado en molcajete con totopos recién hechos y pico de gallo.</p>
+                        </div>
+                        <div class="item-price">$95</div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Platos Fuertes</h3>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Arrachera Marinada (300g)</h4>
+                            <p>A la parrilla, acompañada de enchilada, guacamole y cebollitas.</p>
+                        </div>
+                        <div class="item-price">$280</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Enchiladas Suizas</h4>
+                            <p>Rellenas de pollo, bañadas en salsa cremosa verde y gratinadas con queso manchego.</p>
+                        </div>
+                        <div class="item-price">$160</div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-details">
+                            <h4>Pechuga Parmesana</h4>
+                            <p>Empanizada, salsa pomodoro italiana y queso parmesano gratinado.</p>
+                        </div>
+                        <div class="item-price">$190</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" style="padding: 0;">
+        <div class="gallery-wrap">
+            <div class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Platillo 1">
+            </div>
+            <div class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Platillo 2">
+            </div>
+            <div class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Postre">
+            </div>
+            <div class="gallery-img">
+                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Desayuno">
+            </div>
+        </div>
+    </section>
+
+    <section id="ubicacion" class="location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Visítanos</h2>
+                <p>Estamos listos para recibirte</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="map-frame">
+                    <div class="map-placeholder">
+                        <div class="map-pin"><i class="fas fa-map-marker-alt"></i></div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div>
+                            <h5>Dirección</h5>
+                            <p>Blvd. Campestre #1500, Col. Jardines del Moral, León, Gto.</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-clock"></i>
+                        <div>
+                            <h5>Horario</h5>
+                            <p>Lunes a Domingo: 8:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h5>Reservaciones</h5>
+                            <p>Llámanos o escríbenos para asegurar tu mesa.</p>
+                            <a href="https://wa.me/524771234567" class="whatsapp-float" target="_blank">
+                                <i class="fab fa-whatsapp"></i> (477) 123-4567
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 La Casona Restaurante. Hecho con amor y sazón.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Sitio web creado por <span class="creator-tag">LUISMEX</span></p>
+    </footer>
+    <style>
+        .btn-back-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 99999; /* Para que siempre esté encima de todo */
+            background-color: #222; /* Color oscuro neutral */
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back-home:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+        }
+    </style>
+
+    <a href="web.html" class="btn-back-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Volver al Portafolio
+    </a>
+</body>
+</html>

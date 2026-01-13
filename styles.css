@@ -250,3 +250,37 @@ body { background-color: var(--bg-dark); color: var(--text-white); min-height: 1
     .hero-buttons { flex-direction: column; align-items: stretch; }
     .btn-whatsapp-hero, .btn-glass { width: 100%; justify-content: center; margin-bottom: 10px; }
 }
+/* === CORRECCIÓN DEFINITIVA DE PORTAFOLIO WEB === */
+
+/* 1. FORZAR REJILLA DE 3 COLUMNAS EXACTAS */
+.grid-3 {
+    display: grid !important;
+    /* Esto obliga a que sean 3 columnas del mismo ancho */
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+}
+
+/* 2. FORZAR IMÁGENES HORIZONTALES (PAISAJE) */
+.web-thumb {
+    width: 100% !important;
+    height: 160px !important; /* Altura fija BAJITA para que se vea horizontal */
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.web-thumb img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* RECORTE INTELIGENTE: Rellena el hueco sin deformar */
+    object-position: top center !important; /* Muestra la parte de arriba de la página */
+    transition: 0.5s ease;
+}
+
+/* 3. RESPONSIVO (Para que en celular no se vea apretado) */
+@media (max-width: 900px) {
+    .grid-3 {
+        /* En celular/tablet sí permitimos que baje a 1 o 2 columnas */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    }
+}
