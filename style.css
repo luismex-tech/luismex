@@ -1,0 +1,357 @@
+/* =========================================
+   1. VARIABLES GLOBALES (El ADN del Sitio)
+   ========================================= */
+:root {
+    /* --- COLORES BASE --- */
+    --bg-main: #050505;       /* Negro casi puro */
+    --text-white: #ffffff;
+    --text-gray: #a1a1aa;     
+    
+    /* --- MUNDO DJ (Fiesta) --- */
+    --dj-gold: #fbbf24;       
+    --dj-gold-hover: #d97706; 
+    --dj-card-bg: #111111;    
+    --dj-border: #333333;     
+    
+    /* --- MUNDO DIGITAL (Agencia/Pro) --- */
+    --tech-cyan: #06b6d4;     /* Cyan */
+    --tech-purple: #8b5cf6;   /* Morado */
+    --av-red: #f43f5e;        /* Rojo Neón */
+    --tech-card-bg: #0f172a;  /* Azul oscuro profundo */
+
+    /* --- FUENTES --- */
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* =========================================
+   2. RESET Y BASE
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* =========================================
+   3. UTILIDADES
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.text-center { text-align: center; }
+
+/* Botones Base */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: 2px solid transparent;
+}
+
+/* =========================================
+   4. ESTILOS DEL PORTAL (index.html)
+   ========================================= */
+.main-nav {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-white);
+}
+
+.portal-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 40px 0;
+}
+
+.portal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.portal-card {
+    background: var(--dj-card-bg);
+    border: 1px solid var(--dj-border);
+    border-radius: 20px;
+    padding: 50px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.portal-card h2 { font-size: 1.8rem; margin-bottom: 5px; }
+.portal-card p { color: var(--text-gray); font-size: 1rem; max-width: 300px; }
+.icon-box { font-size: 3rem; margin-bottom: 10px; }
+.btn-portal { margin-top: auto; font-weight: 700; text-transform: uppercase; }
+
+/* Lado Digital */
+.digital-side:hover { border-color: var(--tech-cyan); transform: translateY(-5px); }
+.digital-side .icon-box { color: var(--tech-cyan); }
+.digital-side .btn-portal { color: var(--tech-cyan); }
+
+/* Lado DJ */
+.dj-side:hover { border-color: var(--dj-gold); transform: translateY(-5px); }
+.dj-side .icon-box { color: var(--dj-gold); }
+.dj-side .btn-portal { color: var(--dj-gold); }
+
+
+/* =========================================
+   5. ESTILOS DJ (dj.html)
+   ========================================= */
+.dj-nav { padding: 20px 0; background-color: #000; }
+.dj-header { padding: 40px 0 20px 0; }
+.dj-section { padding: 60px 0; background-color: #050505; }
+
+.dj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+/* Tarjeta DJ */
+.dj-card {
+    background-color: #111111;
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.dj-card:hover { border-color: #555; transform: translateY(-5px); }
+
+.dj-icon { font-size: 2rem; color: var(--text-white); margin-bottom: 15px; }
+.dj-card h3 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin: 0; color: #fff; }
+.dj-sub { color: #888; font-size: 0.9rem; margin-top: 5px; margin-bottom: 20px; }
+.dj-divider { height: 1px; background: #222; margin: 20px 0; width: 100%; }
+.dj-features-title { color: var(--dj-gold); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; text-align: left; margin-bottom: 15px; }
+
+.dj-list { text-align: left; margin-bottom: 30px; }
+.dj-list li { color: #ccc; font-size: 0.9rem; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+.dj-list li i { color: var(--dj-gold); margin-top: 3px; }
+
+/* Botones DJ */
+.dj-btn-outline { display: block; width: 100%; padding: 14px 0; border: 1px solid #444; border-radius: 50px; color: #fff; font-weight: 700; text-transform: uppercase; background: transparent; transition: all 0.3s; }
+.dj-btn-outline:hover { background: #222; border-color: #fff; }
+
+.dj-btn-filled { display: block; width: 100%; padding: 14px 0; background: var(--text-white); color: #000; border: none; border-radius: 50px; font-weight: 800; text-transform: uppercase; transition: all 0.3s; }
+.dj-btn-filled:hover { background: var(--dj-gold); }
+
+/* Tarjeta PRO (Dorada) */
+.pro-card { border: 1px solid var(--dj-gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); }
+.dj-ribbon { position: absolute; top: 0; right: 0; background: var(--text-white); color: #000; font-size: 0.7rem; font-weight: 800; padding: 5px 20px; border-bottom-left-radius: 10px; border-top-right-radius: 20px; z-index: 10; }
+
+/* Botón Ver Foto (Popup) */
+.btn-foto-container { margin-top: auto; margin-bottom: 15px; display: flex; justify-content: center; }
+.btn-foto { background: transparent; border: 1px solid #444; color: #aaa; padding: 8px 20px; border-radius: 50px; font-size: 0.75rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.btn-foto:hover { border-color: var(--text-white); color: var(--text-white); background: rgba(255,255,255,0.05); }
+
+/* Lightbox Popup */
+.lightbox { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+.lightbox.active { display: flex; opacity: 1; }
+.lightbox-content { max-width: 90%; max-height: 85vh; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); border: 2px solid #333; }
+.lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+/* =========================================
+   6. TESTIMONIOS (DJ)
+   ========================================= */
+.testimonials-section { padding: 40px 0 80px 0; background-color: #050505; text-align: center; }
+.testimonials-title { font-size: 1.8rem; color: #fff; margin-bottom: 40px; font-weight: 300; }
+.testimonials-title span { color: var(--dj-gold); font-weight: 700; }
+
+.reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.review-card { background: #111; border: 1px solid #222; border-radius: 15px; padding: 30px; text-align: left; transition: all 0.3s ease; position: relative; }
+.review-card:hover { border-color: var(--dj-gold); transform: translateY(-3px); }
+.stars { color: var(--dj-gold); font-size: 0.9rem; margin-bottom: 15px; }
+.review-text { color: #ccc; font-size: 0.95rem; font-style: italic; margin-bottom: 20px; }
+.client-info { display: flex; align-items: center; gap: 12px; }
+.client-avatar { width: 40px; height: 40px; background: #222; color: var(--dj-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 1px solid #444; }
+.client-name { font-size: 0.9rem; font-weight: 700; color: #fff; display: block; }
+.client-event { font-size: 0.75rem; color: #666; display: block; }
+.quote-icon { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #222; font-family: serif; }
+
+/* =========================================
+   7. BOTÓN FLOTANTE WHATSAPP (CTA FINAL)
+   ========================================= */
+.cta-final-container { text-align: center; margin-top: 50px; padding-bottom: 20px; }
+.btn-whatsapp-giant { background-color: #25D366; color: #ffffff; font-size: 1.1rem; font-weight: 800; padding: 18px 40px; border-radius: 50px; border: none; box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; transition: all 0.3s ease; }
+.btn-whatsapp-giant:hover { background-color: #128C7E; transform: scale(1.05); box-shadow: 0 0 35px rgba(37, 211, 102, 0.6); color: #ffffff; }
+.whatsapp-number { display: block; margin-top: 15px; color: #888; font-size: 1rem; font-weight: 500; }
+
+/* =========================================
+   8. ESTILOS ACORDEÓN (FAQ) - DJ
+   ========================================= */
+.faq-container { max-width: 800px; margin: 60px auto 0 auto; text-align: left; }
+.faq-title { text-align: center; font-size: 1.5rem; color: #fff; margin-bottom: 30px; text-transform: uppercase; }
+.accordion { background-color: #111; color: #eee; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; transition: 0.4s; border-bottom: 1px solid #222; border-radius: 5px; margin-bottom: 5px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+.accordion:after { content: '\002B'; color: var(--dj-gold); font-weight: bold; font-size: 1.2rem; }
+.active, .accordion:hover { background-color: #1a1a1a; color: var(--dj-gold); }
+.active:after { content: "\2212"; }
+.panel { padding: 0 18px; background-color: #0a0a0a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid var(--dj-gold); }
+.panel p { padding: 15px 0; color: #ccc; }
+
+
+/* =========================================
+   9. ESTILOS PORTAFOLIO PRO (DIGITAL)
+   ========================================= */
+
+/* Nav Digital */
+.tech-nav { padding: 20px 0; border-bottom: 1px solid #1e293b; background: rgba(15, 23, 42, 0.95); }
+.tech-section { padding: 50px 0; }
+.bg-darker { background-color: rgba(0,0,0,0.2); }
+
+/* --- TÍTULOS DE SECCIÓN CENTRADOS (NUEVO) --- */
+.section-header-center { text-align: center; margin-bottom: 50px; }
+.title-xl { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.subtitle-lg { font-size: 1.1rem; color: #94a3b8; font-weight: 400; }
+.divider-center { width: 60px; height: 4px; background: var(--av-red); margin: 20px auto 0 auto; border-radius: 2px; }
+
+/* --- HERO HEADER (Estilo Imagen Adjunta) --- */
+.hero-header {
+    position: relative;
+    background-color: #020617; 
+    padding: 100px 0 120px 0;
+    overflow: hidden;
+}
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 1)); z-index: 1; }
+.hero-header .container { position: relative; z-index: 2; }
+
+.hero-subtitle { color: var(--tech-cyan); font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 15px; }
+.hero-title { color: #fff; font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; }
+.highlight-blue { color: #3b82f6; background: linear-gradient(to right, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-description { color: #cbd5e1; font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px auto; }
+.hero-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+.btn-hero-green { background-color: #22c55e; color: #fff; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+.btn-hero-green:hover { background-color: #16a34a; transform: scale(1.05); }
+
+.btn-hero-outline { background-color: transparent; color: #fff; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1rem; border: 2px solid #475569; }
+.btn-hero-outline:hover { border-color: #fff; background-color: rgba(255,255,255,0.1); }
+
+/* --- GRID DE AUDIOS --- */
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.media-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: transform 0.3s; }
+.media-card:hover { border-color: var(--av-red); transform: translateX(5px); background: #253045; }
+.audio-icon { width: 50px; height: 50px; background: rgba(244, 63, 94, 0.1); color: var(--av-red); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
+.media-info { flex-grow: 1; }
+.media-info h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
+.custom-audio-player { width: 100%; height: 30px; filter: invert(0.9) hue-rotate(180deg); }
+
+
+/* --- GRID DE VIDEOS 3x2 (ESTRICTO) --- */
+.video-grid-fixed {
+    display: grid;
+    /* Esto fuerza 3 columnas pase lo que pase en PC */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.video-card-pro {
+    background: #1e293b; /* Fondo azul oscuro */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border: 1px solid #334155;
+    transition: transform 0.3s ease;
+}
+.video-card-pro:hover { transform: translateY(-5px); border-color: var(--tech-cyan); }
+
+.video-wrapper {
+    background: #000;
+    aspect-ratio: 4/5; /* Aspect ratio vertical */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-wrapper video { width: 100%; height: 100%; object-fit: cover; }
+.video-details { padding: 20px; text-align: center; }
+.video-details h3 { color: #fff; font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; }
+.video-details p { color: #94a3b8; font-size: 0.9rem; }
+
+/* --- SECCIÓN ¿POR QUÉ ELEGIRNOS? --- */
+.why-us-section { padding: 80px 0; background-color: #020617; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.feature-card { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: all 0.3s ease; }
+.feature-card:hover { background: #1e293b; border-color: var(--tech-cyan); transform: translateY(-5px); }
+.feature-icon { font-size: 2.5rem; color: var(--tech-cyan); margin-bottom: 20px; }
+.feature-card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
+.feature-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
+
+/* --- ACORDEÓN TECH --- */
+.faq-section-tech { padding: 60px 0; background: #0f172a; }
+.faq-container-tech { max-width: 800px; margin: 0 auto; }
+.accordion-tech { background-color: #1e293b; color: #fff; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; transition: 0.4s; border-radius: 8px; margin-bottom: 10px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border: 1px solid transparent; }
+.accordion-tech:after { content: '\002B'; color: var(--tech-cyan); font-weight: bold; font-size: 1.2rem; }
+.active-tech, .accordion-tech:hover { background-color: #334155; border-color: var(--tech-cyan); }
+.active-tech:after { content: "\2212"; }
+.panel-tech { padding: 0 18px; background-color: #0f172a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid var(--tech-cyan); margin-bottom: 10px; }
+.panel-tech p { padding: 15px 0; color: #cbd5e1; }
+
+
+/* =========================================
+   10. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+@media (max-width: 992px) {
+    .video-grid-fixed {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Portal */
+    .portal-grid { grid-template-columns: 1fr; }
+    
+    /* DJ Grid */
+    .dj-grid { padding: 0 15px; grid-template-columns: 1fr; }
+    
+    /* Botón Gigante */
+    .btn-whatsapp-giant { width: 90%; padding: 12px 15px; font-size: 0.9rem; justify-content: center; margin: 0 auto; }
+    .btn-whatsapp-giant i { font-size: 1.2rem !important; }
+    .cta-final-container { margin-top: 30px; padding-bottom: 40px; }
+
+    /* Digital / Portafolio */
+    .video-grid-fixed { grid-template-columns: 1fr; /* 1 columna en celular */ }
+    .hero-title { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; gap: 15px; }
+    .btn-hero-green, .btn-hero-outline { width: 100%; text-align: center; justify-content: center; }
+}

@@ -3,79 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agencia Digital | LUISMEX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .bg-tech { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920'); }
-    </style>
-</head>
-<body data-page="digital">
+    <title>LUISMEX | Portafolio Pro</title>
+    <meta name="description" content="Producción profesional de Spots de audio y vide0. Voces profesionales, entrega express en 24 horas y precios desde $350 MXN. Impulsa tu marca hoy.">
+    <meta name="keywords" content="Spots publicitarios, Grabación de spots, Video Marketing, Spots para radio, Voz en off, Publicidad para negocios, León Guanajuato, Luismex Pro, Videos para TikTok,Spots perifoneo, carro de sonido, audios publicitarios">
+    <meta name="author" content="Luismex Pro">
+    <meta name="robots" content="index, follow">
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">LUIS<span>MEX</span></a>
-        <div class="header-socials desktop-only">
-            <a href="https://wa.me/5214776772422" target="_blank" class="brand-wa"><i class="fab fa-whatsapp"></i> 477 677 2422</a>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Luismex Pro | Spots de Audio y Video Marketing">
+    <meta property="og:description" content="Voces profesionales y producción de alta calidad. Spots desde $350 y entrega el mismo día. Escucha nuestros demos aquí.">
+    <meta property="og:url" content="https://www.luismex.com/digital.html">
+    <meta property="og:image" content="images/poster_default.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="tech-nav">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="logo">LUIS<span style="color:var(--tech-cyan)">MEX</span> PRO</div>
+            <a href="index.html" style="font-size:0.9rem; color:#888;"><i class="fa-solid fa-arrow-left"></i> Menú</a>
         </div>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="dj.html">DJ & Eventos</a></li>
-            <li><a href="digital.html" class="active-link">Agencia Digital</a></li>
-        </ul>
     </nav>
 
-    <div class="hero-cover bg-tech">
+    <header class="hero-header">
+        <div class="container text-center">
+            <p class="hero-subtitle">COBERTURA NACIONAL E INTERNACIONAL</p>
+            <h1 class="hero-title">AUDIO SPOTS <span class="highlight-blue">PUBLICITARIOS</span></h1>
+            <p class="hero-description">Voces profesionales, producción de alta calidad y entrega express — <strong>audio que vende.</strong></p>
+            
+            <div class="hero-buttons">
+                <a href="#demos-audio" class="btn btn-hero-green"><i class="fa-solid fa-play"></i> Escuchar Demos</a>
+                <a href="https://wa.me/5214776772422?text=Hola, quiero solicitar un presupuesto" class="btn btn-hero-outline">Solicitar Presupuesto</a>
+            </div>
+        </div>
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="tagline">MARKETING & DESARROLLO</span>
-            <h1>Impulsa tu negocio en <span class="neon-text">Internet</span></h1>
-            <p>Diseño Web, Spots de Audio y Video Publicitario de alta conversión.</p>
-            <a href="#servicios" class="btn-whatsapp-float" style="display:inline-flex;">Ver Servicios</a>
+    </header>
+
+    <section class="tech-section" id="demos-audio">
+        <div class="container">
+            
+            <div class="section-header-center">
+                <h2 class="title-xl">Nuestros Demos</h2>
+                <p class="subtitle-lg">Escucha la calidad y versatilidad de nuestras producciones</p>
+                <div class="divider-center"></div>
+            </div>
+            
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-music"></i></div>
+                    <div class="media-info">
+                        <h3>Spot de Baile</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/baile.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-car-battery"></i></div>
+                    <div class="media-info">
+                        <h3>Dr. Battery</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/drbatery.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <div class="media-info">
+                        <h3>El Pollo Azteca</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/elpolloazteca.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-guitar"></i></div>
+                    <div class="media-info">
+                        <h3>Intro Banda</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/introbanda.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="media-info">
+                        <h3>Purificadora</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/purificadora.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="audio-icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                    <div class="media-info">
+                        <h3>Tortillería Esperanza</h3>
+                        <audio controls class="custom-audio-player"><source src="audios/tortilleriaesperanza.mp3" type="audio/mpeg"></audio>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top:40px;">
+                 <a href="https://wa.me/5214776772422?text=Me interesan los Spots de Audio" class="btn btn-whatsapp-giant" style="font-size: 1rem; padding: 15px 30px;">
+                    <i class="fa-brands fa-whatsapp"></i> COTIZAR AUDIO
+                </a>
+            </div>
         </div>
+    </section>
+
+    <section class="tech-section bg-darker" id="demos-video">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 class="title-xl">Video Marketing</h2>
+                <p class="subtitle-lg">Formatos verticales optimizados para Redes Sociales</p>
+                <div class="divider-center" style="background:var(--tech-cyan);"></div>
+            </div>
+            
+            <div class="video-grid-fixed">
+                
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Batterynavidad.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Video Navidad</h3>
+                        <p>Cliente: Dr. Battery Center</p>
+                    </div>
+                </div>
+
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Pasteleria.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Pastelería</h3>
+                        <p>Cliente: Dulce Momento</p>
+                    </div>
+                </div>
+
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Ecoagua.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Purificadora de Agua</h3>
+                        <p>Cliente: Eco Agua</p>
+                    </div>
+                </div>
+
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Lospinos.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Tortillería y Rosticería</h3>
+                        <p>Cliente: Los Pinos</p>
+                    </div>
+                </div>
+
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Ranchoyebra.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Pollos Rostizados</h3>
+                        <p>Cliente: Rancho Yebra</p>
+                    </div>
+                </div>
+
+                <div class="video-card-pro">
+                    <div class="video-wrapper">
+                        <video controls><source src="videos/Pollofresco.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="video-details">
+                        <h3>Pollo Fresco</h3>
+                        <p>Cliente: Mi Guerita</p>
+                    </div>
+                </div>
+
+            </div>
+
+             <div class="text-center" style="margin-top:40px;">
+                <a href="https://wa.me/5214776772422?text=Me interesan los Videos Verticales" class="btn btn-whatsapp-giant" style="font-size: 1rem; padding: 15px 30px;">
+                   <i class="fa-brands fa-whatsapp"></i> COTIZAR VIDEO
+               </a>
+           </div>
+        </div>
+    </section>
+
+    <section class="why-us-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 10px;">¿Por qué elegirnos?</h2>
+                <p style="color: #94a3b8;">Producción integral: guion, locución, música y master final.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <h3>Voces Variadas</h3>
+                    <p>Amplia variedad de voces masculinas y femeninas (Neutro y Local).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>Experiencia</h3>
+                    <p>Más de 30 años creando audio profesional para marcas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <h3>Entrega Express</h3>
+                    <p>Archivos digitales enviados en máx. 24 horas.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Calidad Total</h3>
+                    <p>Audio limpio, masterizado y listo para emisión.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section-tech">
+        <div class="container">
+            <h2 class="section-title text-center" style="justify-content:center; border:none;">PREGUNTAS FRECUENTES</h2>
+            <div class="faq-container-tech">
+                <button class="accordion-tech">¿Cómo me entregan mis spots?</button>
+                <div class="panel-tech">
+                    <p>Te enviamos los archivos finales en formato <strong>MP3 o WAV de alta calidad</strong> directamente a tu WhatsApp o correo electrónico, listos para reproducir.</p>
+                </div>
+                <button class="accordion-tech">¿Qué incluye el precio de $350?</button>
+                <div class="panel-tech">
+                    <p>Incluye la producción completa: <strong>Locución profesional, fondo musical con licencia y masterización</strong>. Además, te regalamos la versión en video (Audiograma) para tus redes sociales.</p>
+                </div>
+                <button class="accordion-tech">¿Hacen voces para bailes o sonideros?</button>
+                <div class="panel-tech">
+                    <p>¡Sí! Tenemos el paquete High Energy ($600) que incluye efectos especiales, ecos y una locución con mayor proyección, ideal para eventos masivos.</p>
+                </div>
+                <button class="accordion-tech">¿Cuánto tardan en entregar?</button>
+                <div class="panel-tech">
+                    <p>Nuestra promesa es entrega Express. Generalmente el mismo día si confirmas antes de las 2 PM, o máximo en <strong>24 horas</strong>.</p>
+                </div>
+                <button class="accordion-tech">¿Cuáles son las formas de pago?</button>
+                <div class="panel-tech">
+                    <p>Puedes pagar mediante <strong>Transferencia Bancaria (BBVA)</strong> o depósito en cualquier <strong>OXXO</strong>. Se requiere pago previo para iniciar la producción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="cta-final-container" style="background-color: #050505; padding-top: 20px; padding-bottom: 60px;">
+        <a href="https://wa.me/5214776772422?text=Hola, estoy listo para ordenar mi spot" class="btn btn-whatsapp-giant">
+            <i class="fa-brands fa-whatsapp"></i> QUIERO ORDENAR MI SPOT
+        </a>
     </div>
-
-    <section id="servicios" class="section-pad">
-        <div class="section-header"><h2>Servicios Creativos</h2></div>
-
-        <h3 id="audio" style="color:var(--accent); margin: 3rem 0 1rem;">Audio Spots</h3>
-        <div class="grid-3" id="container-audio"></div>
-
-        <h3 id="web" style="color:var(--accent); margin: 3rem 0 1rem;">Desarrollo Web</h3>
-        <div class="grid-3">
-             <div class="web-card"><i class="fas fa-globe fa-3x" style="color:var(--primary)"></i><h4>Landing Page</h4><p>Ideal para ventas rápidas.</p></div>
-             <div class="web-card"><i class="fas fa-shopping-cart fa-3x" style="color:var(--primary)"></i><h4>E-Commerce</h4><p>Vende tus productos online.</p></div>
-             <div class="web-card"><i class="fas fa-envelope-open fa-3x" style="color:var(--primary)"></i><h4>Invitaciones Web</h4><p>Para eventos sociales.</p></div>
-        </div>
-
-        <h3 id="video" style="color:var(--accent); margin: 3rem 0 1rem;">Video & Diseño</h3>
-        <div class="grid-3" id="container-video"></div>
-    </section>
-
-    <section class="section-pad" style="background: #161e2e;">
-        <div class="section-header"><h2>Empresas Satisfechas</h2></div>
-        <div class="grid-3">
-            <div class="testimonial-card">
-                <p>"La página web carga rapidísimo y hemos captado más clientes desde que Luismex la diseñó."</p>
-                <div class="client-info">
-                    <div class="avatar"><i class="fas fa-building"></i></div>
-                    <div><h4>Inmobiliaria Bajío</h4><small>Desarrollo Web</small></div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <p>"Los spots de radio tienen una calidad de voz impresionante. Muy profesionales."</p>
-                <div class="client-info">
-                    <div class="avatar"><i class="fas fa-bullhorn"></i></div>
-                    <div><h4>Supermercados El Ahorro</h4><small>Audio Spots</small></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="main-footer">
-        <p style="text-align:center;">Derechos Reservados 2026 Elaborado por LUISMEX MultiServicios Digitales</p>
+    <footer class="text-center" style="padding:40px; color:#555; font-size:0.8rem;">
+        &copy; 2026 Luismex Pro.
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        var acc = document.getElementsByClassName("accordion-tech");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active-tech");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+
 </body>
 </html>
