@@ -301,64 +301,7 @@ img { max-width: 100%; display: block; }
         text-align: center;
     }
 }
-/* =========================================
-   CORRECCIONES FINALES PARA CELULAR (MÓVIL)
-   ========================================= */
-@media (max-width: 768px) {
 
-    /* 1. ARREGLAR TÍTULOS GIGANTES QUE ROMPEN EL CENTRADO */
-    .hero-content h1 {
-        font-size: 2.5rem !important; /* Reduce el tamaño drásticamente */
-        line-height: 1.1 !important;
-        width: 100% !important;
-        text-align: center !important;
-        word-wrap: break-word !important; /* Si una palabra es muy larga, la baja */
-    }
-
-    /* 2. FORZAR CENTRADO PERFECTO EN EL HERO */
-    .hero-content {
-        padding: 0 15px !important; /* Margen a los lados para que no pegue al borde */
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important; /* Centra horizontalmente todo */
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-    
-    .hero-content p {
-        text-align: center !important;
-        font-size: 1rem !important;
-        max-width: 100% !important;
-    }
-
-    /* 3. ARREGLAR TARJETA DE PAQUETE (La del borde amarillo) */
-    .highlight-faq, .offer-card, div[style*="border"] {
-        width: 100% !important; /* Que ocupe el ancho disponible */
-        max-width: 95% !important; /* Dejando un respirito a los lados */
-        margin-left: auto !important;
-        margin-right: auto !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 4. SOLUCIÓN AL VIDEO PEQUEÑO */
-    /* Permitimos que en celular el video crezca hacia abajo (vertical) */
-    .std-video {
-        height: auto !important;      /* Quita el límite fijo de 280px */
-        min-height: 300px !important; /* Altura mínima decente */
-        max-height: 550px !important; /* Altura máxima para videos verticales (Shorts) */
-        width: 100% !important;
-        object-fit: contain !important; /* Muestra el video completo sin recortes */
-        background: #000;
-    }
-    
-    /* Prevenir que la pantalla "baile" hacia los lados */
-    body, html {
-        overflow-x: hidden !important;
-        width: 100% !important;
-    }
-}
 /* =======================================================
    CORRECCIÓN FINAL MÓVIL (Centrado y Ajuste Automático)
    ======================================================= */
@@ -408,4 +351,5 @@ img { max-width: 100%; display: block; }
         font-size: 1rem !important;
         padding: 0 5px !important;
     }
+
 }
