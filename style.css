@@ -259,3 +259,45 @@ img { max-width: 100%; display: block; }
         justify-content: center;
     }
 }
+/* === CORRECCIONES PARA MÓVIL (Videos y Textos) === */
+@media (max-width: 768px) {
+
+    /* 1. Ajustar Títulos Gigantes */
+    .hero-content h1 {
+        font-size: 2.2rem !important; /* Reduce el tamaño del texto "Audio Spots" */
+    }
+
+    /* 2. Centrar y ajustar Videos/Iframes (YouTube) */
+    iframe, video, .hero-content iframe {
+        max-width: 100% !important; /* Que no se salga de la pantalla */
+        width: 100% !important;     /* Ocupa el ancho disponible */
+        height: auto !important;    /* Ajusta la altura automáticamente */
+        aspect-ratio: 16/9;         /* Mantiene proporción de video normal */
+        margin: 0 auto !important;  /* Centrado automático */
+        display: block;
+    }
+
+    /* Caso especial: Si es un YouTube Short (Vertical) */
+    iframe[src*="shorts"], .vertical-video {
+        aspect-ratio: 9/16 !important; /* Proporción vertical */
+        max-height: 500px !important;  /* Que no sea eterno hacia abajo */
+    }
+
+    /* 3. Ajustar la Tarjeta de Oferta (Paquete 2 en 1) */
+    .offer-card, .paquete-card { 
+        /* Asumiendo que usaste una clase para esa tarjeta nueva */
+        width: 100% !important;
+        margin: 1rem 0 !important;
+        padding: 1.5rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 4. Asegurar que todo el Hero esté centrado */
+    .hero-content {
+        padding: 1rem !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente */
+        text-align: center;
+    }
+}
