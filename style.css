@@ -20,50 +20,48 @@
    2. RESET Y BASE
    ========================================= */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background-color: var(--bg-main); color: var(--text-white); font-family: var(--font-main); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+html, body { 
+    background-color: var(--bg-main); 
+    color: var(--text-white); 
+    font-family: var(--font-main); 
+    line-height: 1.6; 
+    -webkit-font-smoothing: antialiased; 
+    overflow-x: hidden; 
+    width: 100%;
+}
+
 a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
+iframe, video { max-width: 100%; }
 
-/* =========================================
-   3. UTILIDADES
-   ========================================= */
+/* UTILIDADES GLOBALES */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .text-center { text-align: center; }
-.highlight-gold { background-color: var(--dj-gold); color: #000; padding: 0px 12px; border-radius: 6px; display: inline-block; box-shadow: 0 2px 10px rgba(251, 191, 36, 0.25); line-height: 1.2; }
 
-@media (max-width: 768px) {
-    .title-xl { font-size: 1.6rem; }
-    .highlight-gold { padding: 0px 8px; white-space: nowrap; font-size: 1.5rem; }
-} 
-
-/* =========================================
-   4. ESTILOS DEL PORTAL
-   ========================================= */
-.main-nav { padding: 20px 0; text-align: center; border-bottom: 1px solid #222; }
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: var(--text-white); }
-.portal-wrapper { display: flex; align-items: center; justify-content: center; min-height: 80vh; padding: 40px 0; }
-.portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
-.portal-card { background: var(--dj-card-bg); border: 1px solid var(--dj-border); border-radius: 20px; padding: 50px 30px; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.portal-card h2 { font-size: 1.8rem; margin-bottom: 5px; }
-.portal-card p { color: var(--text-gray); font-size: 1rem; max-width: 300px; }
-.icon-box { font-size: 3rem; margin-bottom: 10px; }
-.btn-portal { margin-top: auto; font-weight: 700; text-transform: uppercase; }
-.digital-side:hover { border-color: var(--tech-cyan); transform: translateY(-5px); }
-.digital-side .icon-box { color: var(--tech-cyan); }
-.digital-side .btn-portal { color: var(--tech-cyan); }
-.dj-side:hover { border-color: var(--dj-gold); transform: translateY(-5px); }
-.dj-side .icon-box { color: var(--dj-gold); }
-.dj-side .btn-portal { color: var(--dj-gold); }
-
-/* =========================================
-   5. ESTILOS DJ
-   ========================================= */
+/* =================================================================
+   SECCIÓN A: ESTILOS DJ / CANDELA PARTY (RESTAURADOS)
+   NO MODIFICAR ESTA SECCIÓN PARA NO ROMPER LA VISTA DE DJ.HTML
+   ================================================================= */
 .dj-nav { padding: 20px 0; background-color: #000; }
 .dj-header { padding: 40px 0 20px 0; }
 .dj-section { padding: 60px 0; background-color: #050505; }
+/* Grid original del DJ restaurado */
 .dj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-.dj-card { background-color: #111111; border: 1px solid #333; border-radius: 20px; padding: 35px 25px; text-align: center; position: relative; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease, border-color 0.3s ease; }
+
+.dj-card { 
+    background-color: #111111; 
+    border: 1px solid #333; 
+    border-radius: 20px; 
+    padding: 35px 25px; 
+    text-align: center; 
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    transition: transform 0.3s ease, border-color 0.3s ease; 
+}
 .dj-card:hover { border-color: #555; transform: translateY(-5px); }
 .dj-icon { font-size: 2rem; color: var(--text-white); margin-bottom: 15px; }
 .dj-card h3 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; margin: 0; color: #fff; }
@@ -72,12 +70,17 @@ img { max-width: 100%; display: block; }
 .dj-list { text-align: left; margin-bottom: 30px; }
 .dj-list li { color: #ccc; font-size: 0.9rem; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
 .dj-list li i { color: var(--dj-gold); margin-top: 3px; }
+
+/* Botones Específicos DJ */
 .dj-btn-outline { display: block; width: 100%; padding: 14px 0; border: 1px solid #444; border-radius: 50px; color: #fff; font-weight: 700; text-transform: uppercase; background: transparent; transition: all 0.3s; }
 .dj-btn-outline:hover { background: #222; border-color: #fff; }
 .dj-btn-filled { display: block; width: 100%; padding: 14px 0; background: var(--text-white); color: #000; border: none; border-radius: 50px; font-weight: 800; text-transform: uppercase; transition: all 0.3s; }
 .dj-btn-filled:hover { background: var(--dj-gold); }
+
 .pro-card { border: 1px solid var(--dj-gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.1); }
 .dj-ribbon { position: absolute; top: 0; right: 0; background: var(--text-white); color: #000; font-size: 0.7rem; font-weight: 800; padding: 5px 20px; border-bottom-left-radius: 10px; border-top-right-radius: 20px; z-index: 10; }
+
+/* Lightbox Imágenes DJ */
 .btn-foto-container { margin-top: auto; margin-bottom: 15px; display: flex; justify-content: center; }
 .btn-foto { background: transparent; border: 1px solid #444; color: #aaa; padding: 8px 20px; border-radius: 50px; font-size: 0.75rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; text-decoration: none; }
 .btn-foto:hover { border-color: var(--text-white); color: var(--text-white); background: rgba(255,255,255,0.05); }
@@ -86,9 +89,7 @@ img { max-width: 100%; display: block; }
 .lightbox-content { max-width: 90%; max-height: 85vh; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); border: 2px solid #333; }
 .lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
 
-/* =========================================
-   6. TESTIMONIOS & CTA
-   ========================================= */
+/* Testimonios DJ */
 .testimonials-section { padding: 40px 0 80px 0; background-color: #050505; text-align: center; }
 .testimonials-title { font-size: 1.8rem; color: #fff; margin-bottom: 40px; font-weight: 300; }
 .testimonials-title span { color: var(--dj-gold); font-weight: 700; }
@@ -102,50 +103,8 @@ img { max-width: 100%; display: block; }
 .client-name { font-size: 0.9rem; font-weight: 700; color: #fff; display: block; }
 .client-event { font-size: 0.75rem; color: #666; display: block; }
 .quote-icon { position: absolute; top: 20px; right: 20px; font-size: 2rem; color: #222; font-family: serif; }
-.cta-final-container { text-align: center; margin-top: 50px; padding-bottom: 20px; }
-.btn-whatsapp-giant { background-color: #25D366; color: #ffffff; font-size: 1.1rem; font-weight: 800; padding: 18px 40px; border-radius: 50px; border: none; box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); display: inline-flex; align-items: center; gap: 12px; text-transform: uppercase; transition: all 0.3s ease; }
-.btn-whatsapp-giant:hover { background-color: #128C7E; transform: scale(1.05); box-shadow: 0 0 35px rgba(37, 211, 102, 0.6); color: #ffffff; }
 
-/* =========================================
-   7. ESTILOS PORTAFOLIO PRO (DIGITAL)
-   ========================================= */
-.tech-nav { padding: 20px 0; border-bottom: 1px solid #1e293b; background: rgba(15, 23, 42, 0.95); }
-.tech-section { padding: 50px 0; }
-.section-header-center { text-align: center; margin-bottom: 50px; }
-.title-xl { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
-.subtitle-lg { font-size: 1.1rem; color: #94a3b8; font-weight: 400; }
-.divider-center { width: 60px; height: 4px; background: var(--av-red); margin: 20px auto 0 auto; border-radius: 2px; }
-.highlight-blue { color: #3b82f6; background: linear-gradient(to right, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-subtitle { color: var(--tech-cyan); font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 15px; }
-.btn-hero-green { background-color: #22c55e; color: #fff; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
-.btn-hero-green:hover { background-color: #16a34a; transform: scale(1.05); }
-.btn-hero-outline { background-color: transparent; color: #fff; padding: 15px 35px; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 1rem; border: 2px solid #475569; }
-.btn-hero-outline:hover { border-color: #fff; background-color: rgba(255,255,255,0.1); }
-.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.media-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: transform 0.3s; }
-.media-card:hover { border-color: var(--av-red); transform: translateX(5px); background: #253045; }
-.audio-icon { width: 50px; height: 50px; background: rgba(244, 63, 94, 0.1); color: var(--av-red); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
-.media-info { flex-grow: 1; }
-.media-info h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
-.custom-audio-player { width: 100%; height: 30px; filter: invert(0.9) hue-rotate(180deg); }
-.why-us-section { padding: 80px 0; background-color: #020617; }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
-.feature-card { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: all 0.3s ease; }
-.feature-card:hover { background: #1e293b; border-color: var(--tech-cyan); transform: translateY(-5px); }
-.feature-icon { font-size: 2.5rem; color: var(--tech-cyan); margin-bottom: 20px; }
-.feature-card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; font-weight: 700; }
-.feature-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
-.faq-section-tech { padding: 60px 0; background: #0f172a; }
-.faq-container-tech { max-width: 800px; margin: 0 auto; }
-.accordion-tech { background-color: #1e293b; color: #fff; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; transition: 0.4s; border-radius: 8px; margin-bottom: 10px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border: 1px solid transparent; }
-.accordion-tech:after { content: '\002B'; color: var(--tech-cyan); font-weight: bold; font-size: 1.2rem; }
-.active-tech, .accordion-tech:hover { background-color: #334155; border-color: var(--tech-cyan); }
-.active-tech:after { content: "\2212"; }
-.panel-tech { padding: 0 18px; background-color: #0f172a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid var(--tech-cyan); margin-bottom: 10px; }
-.panel-tech p { padding: 15px 0; color: #cbd5e1; }
-.accordion-gold { background-color: #1a1a1a; color: var(--dj-gold); border: 1px solid var(--dj-gold); font-weight: 800; text-transform: uppercase; box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); }
-.accordion-gold:after { color: var(--dj-gold); }
-.accordion-gold:hover, .accordion-gold.active-tech { background-color: var(--dj-gold); color: #000; }
+/* FAQ Acordeón DJ (Estilo Clásico) */
 .faq-container { max-width: 800px; margin: 60px auto 0 auto; text-align: left; }
 .faq-title { text-align: center; font-size: 1.5rem; color: #fff; margin-bottom: 30px; text-transform: uppercase; }
 .accordion { background-color: #111; color: #eee; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; transition: 0.4s; border-bottom: 1px solid #222; border-radius: 5px; margin-bottom: 5px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
@@ -155,7 +114,160 @@ img { max-width: 100%; display: block; }
 .panel { padding: 0 18px; background-color: #0a0a0a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid var(--dj-gold); }
 .panel p { padding: 15px 0; color: #ccc; }
 
-/* NUEVO BOTÓN DEMO VIDEO */
+
+/* =================================================================
+   SECCIÓN B: ESTILOS DIGITAL / TECH (AGENCIA)
+   AQUÍ ESTÁN LOS CAMBIOS NUEVOS PARA DIGITAL.HTML
+   ================================================================= */
+
+/* Navegación Tech */
+.tech-nav { padding: 20px 0; border-bottom: 1px solid #1e293b; background: rgba(15, 23, 42, 0.95); }
+
+/* Hero Tech (Nuevo diseño responsive) */
+.hero-header-split { 
+    position: relative; 
+    background-color: #020617; 
+    padding: 60px 0 80px 0; 
+    overflow: hidden; 
+}
+.hero-grid { 
+    display: grid; 
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+/* Tipografía Fluida */
+.hero-content-left .hero-title { 
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    margin-bottom: 20px; 
+    line-height: 1.1;
+    font-weight: 800;
+}
+.hero-subtitle { 
+    color: var(--tech-cyan); 
+    font-weight: 700; 
+    letter-spacing: 2px; 
+    font-size: 0.9rem; 
+    margin-bottom: 15px; 
+}
+.highlight-blue { 
+    color: #3b82f6; 
+    background: linear-gradient(to right, #3b82f6, #06b6d4); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+/* Cajas Promo Tech */
+.promo-box-gold { 
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05)); 
+    border: 1px solid var(--dj-gold); 
+    border-radius: 12px; 
+    padding: 20px; 
+    margin-bottom: 25px; 
+    position: relative; 
+}
+.price-tag { 
+    position: absolute; 
+    top: -15px; right: 20px; 
+    background: var(--dj-gold); 
+    color: #000; 
+    font-weight: 800; 
+    padding: 5px 15px; 
+    border-radius: 50px; 
+    font-size: 1.2rem; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+    transform: rotate(3deg); 
+}
+.benefit-box { margin-bottom: 30px; border-left: 3px solid var(--tech-cyan); padding-left: 15px; }
+
+/* Video Frame Tech */
+.hero-content-right { display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.phone-frame { 
+    width: 280px; 
+    height: 500px; 
+    background: #000; 
+    border-radius: 30px; 
+    border: 8px solid #333; 
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.4); 
+    overflow: hidden; 
+}
+.phone-frame iframe { width: 100%; height: 100%; object-fit: cover; }
+
+/* Utilidades Tech Generales */
+.tech-section { padding: 50px 0; }
+.section-header-center { text-align: center; margin-bottom: 50px; }
+.title-xl { font-size: 2.5rem; font-weight: 800; color: #fff; margin-bottom: 10px; }
+.subtitle-lg { font-size: 1.1rem; color: #94a3b8; font-weight: 400; }
+.divider-center { width: 60px; height: 4px; background: var(--av-red); margin: 20px auto 0 auto; border-radius: 2px; }
+.highlight-gold { 
+    background-color: var(--dj-gold); 
+    color: #000; 
+    padding: 0px 12px; 
+    border-radius: 6px; 
+    display: inline-block; 
+    box-shadow: 0 2px 10px rgba(251, 191, 36, 0.25); 
+    line-height: 1.2; 
+}
+
+/* Grid de Audio (Demos) */
+.media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.media-card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; align-items: center; gap: 15px; transition: transform 0.3s; }
+.media-card:hover { border-color: var(--av-red); transform: translateX(5px); background: #253045; }
+.audio-icon { width: 50px; height: 50px; background: rgba(244, 63, 94, 0.1); color: var(--av-red); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; }
+.media-info { flex-grow: 1; overflow: hidden; } 
+.media-info h3 { font-size: 1rem; color: #fff; margin-bottom: 8px; font-weight: 600; }
+.custom-audio-player { width: 100%; height: 30px; filter: invert(0.9) hue-rotate(180deg); }
+
+/* FAQ Tech (Estilo Moderno) */
+.faq-section-tech { padding: 60px 0; background: #0f172a; }
+.faq-container-tech { max-width: 800px; margin: 0 auto; }
+.accordion-tech { background-color: #1e293b; color: #fff; cursor: pointer; padding: 18px; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; transition: 0.4s; border-radius: 8px; margin-bottom: 10px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; border: 1px solid transparent; }
+.accordion-tech:after { content: '\002B'; color: var(--tech-cyan); font-weight: bold; font-size: 1.2rem; }
+.active-tech, .accordion-tech:hover { background-color: #334155; border-color: var(--tech-cyan); }
+.active-tech:after { content: "\2212"; }
+.panel-tech { padding: 0 18px; background-color: #0f172a; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-out; border-left: 2px solid var(--tech-cyan); margin-bottom: 10px; }
+.accordion-gold { background-color: #1a1a1a; color: var(--dj-gold); border: 1px solid var(--dj-gold); font-weight: 800; text-transform: uppercase; box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); }
+.accordion-gold:after { color: var(--dj-gold); }
+.accordion-gold:hover, .accordion-gold.active-tech { background-color: var(--dj-gold); color: #000; }
+
+/* Why Us Tech */
+.why-us-section { padding: 80px 0; background-color: #020617; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.feature-card { background: linear-gradient(145deg, #1e293b, #0f172a); padding: 30px 20px; border-radius: 12px; text-align: center; border: 1px solid #334155; transition: all 0.3s ease; }
+.feature-icon { font-size: 2.5rem; color: var(--tech-cyan); margin-bottom: 20px; }
+
+/* Modal Video */
+.lightbox-video { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); justify-content: center; align-items: center; backdrop-filter: blur(5px); }
+.video-modal-content { text-align: center; width: 90%; max-width: 600px; }
+.close-video { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; transition: 0.3s; z-index: 10002; padding: 10px; }
+
+/* Botón Especial WhatsApp Gigante (Centrado con Flex) */
+.btn-whatsapp-giant { 
+    background-color: #25D366; 
+    color: #ffffff; 
+    font-size: 1.1rem; 
+    font-weight: 800; 
+    padding: 18px 40px; 
+    border-radius: 50px; 
+    border: none; 
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3); 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 12px; 
+    text-transform: uppercase; 
+    transition: all 0.3s ease; 
+    width: fit-content;
+}
+.btn-whatsapp-giant:hover { 
+    background-color: #128C7E; 
+    transform: scale(1.05); 
+    box-shadow: 0 0 35px rgba(37, 211, 102, 0.6); 
+    color: #ffffff; 
+}
+
+/* Botón Demo Video */
 .btn-demo-video {
     background: transparent;
     border: 1px solid var(--tech-cyan);
@@ -166,190 +278,76 @@ img { max-width: 100%; display: block; }
     font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    display: inline-flex;
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 10px;
+}
+.btn-demo-video:hover { background: var(--tech-cyan); color: #000; }
+
+/* Contenedor Final CTA (Corrección de centrado) */
+.cta-final-container {
+    display: flex;
+    justify-content: center; /* Centrado Horizontal */
     align-items: center;
-    gap: 8px;
-}
-.btn-demo-video:hover {
-    background: var(--tech-cyan);
-    color: #000;
+    width: 100%;
 }
 
-/* LIGHTBOX VIDEO */
-.lightbox-video {
-    display: none; 
-    position: fixed;
-    z-index: 10000; 
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.95); 
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(5px);
-}
-.video-modal-content {
-    text-align: center;
-    width: 90%;
-    max-width: 400px; /* Vertical */
-}
+/* Portal Home */
+.main-nav { padding: 20px 0; text-align: center; border-bottom: 1px solid #222; }
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 2px; color: var(--text-white); }
+.portal-wrapper { display: flex; align-items: center; justify-content: center; min-height: 80vh; padding: 40px 0; }
+.portal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 900px; margin: 0 auto; }
+.portal-card { background: var(--dj-card-bg); border: 1px solid var(--dj-border); border-radius: 20px; padding: 50px 30px; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.portal-card h2 { font-size: 1.8rem; margin-bottom: 5px; }
+.portal-card p { color: var(--text-gray); font-size: 1rem; max-width: 300px; }
+.icon-box { font-size: 3rem; margin-bottom: 10px; }
+.btn-portal { margin-top: auto; font-weight: 700; text-transform: uppercase; }
+.digital-side:hover { border-color: var(--tech-cyan); transform: translateY(-5px); }
+.digital-side .icon-box, .digital-side .btn-portal { color: var(--tech-cyan); }
+.dj-side:hover { border-color: var(--dj-gold); transform: translateY(-5px); }
+.dj-side .icon-box, .dj-side .btn-portal { color: var(--dj-gold); }
 
-/* ESTILOS DE LA CRUZ (CERRAR VIDEO) - MODIFICADO PARA MÓVIL */
-.close-video {
-    position: absolute;
-    top: 20px; 
-    right: 30px;
-    color: #fff; 
-    font-size: 40px; 
-    cursor: pointer; 
-    transition: 0.3s;
-    z-index: 10002; /* Para asegurar que esté encima de todo */
-    padding: 10px; /* Aumenta el área de toque */
-}
-.close-video:hover { color: var(--av-red); }
 
-/* HERO SPLIT */
-.hero-header-split { position: relative; background-color: #020617; padding: 60px 0 80px 0; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-.hero-content-left { text-align: left; z-index: 5; position: relative; }
-
-.hero-content-left .hero-title { 
-    font-size: 3rem; 
-    margin-bottom: 20px; 
-    line-height: 0.95; 
-}
-
-.hero-content-right { display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 5; position: relative; }
-.phone-frame { width: 280px; height: 500px; background: #000; border-radius: 30px; border: 8px solid #333; box-shadow: 0 0 30px rgba(6, 182, 212, 0.4); overflow: hidden; }
-.phone-frame iframe { width: 100%; height: 100%; }
-.promo-box-gold { background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05)); border: 1px solid var(--dj-gold); border-radius: 12px; padding: 20px; margin-bottom: 25px; position: relative; }
-.price-tag { position: absolute; top: -15px; right: 20px; background: var(--dj-gold); color: #000; font-weight: 800; padding: 5px 15px; border-radius: 50px; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: rotate(3deg); }
-.promo-box-gold h3 { color: var(--dj-gold); font-size: 1.3rem; margin-bottom: 5px; font-weight: 800; }
-.promo-box-gold p { color: #fff; font-size: 1rem; margin-bottom: 5px; }
-.promo-box-gold .promo-small { font-size: 0.85rem; color: #ccc; font-style: italic; }
-.benefit-box { margin-bottom: 30px; border-left: 3px solid var(--tech-cyan); padding-left: 15px; }
-.benefit-box h4 { color: var(--tech-cyan); font-size: 1rem; margin-bottom: 5px; }
-.benefit-box p { color: #94a3b8; font-size: 0.9rem; }
-
+/* =================================================================
+   SECCIÓN C: MEDIA QUERIES (MÓVIL)
+   Aplica cambios solo en pantallas pequeñas
+   ================================================================= */
 @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-    .hero-content-left { order: 2; text-align: center; }
-    .hero-content-right { order: 1; }
-    .promo-box-gold, .benefit-box { text-align: left; }
-    .hero-title { font-size: 2.2rem; }
+    /* Ajustes específicos para el Hero Digital */
+    .hero-header-split { padding: 40px 0 60px 0; }
+    .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+    
+    .hero-content-left { order: 1; padding: 0 10px; }
+    .hero-content-right { order: 2; margin-top: -20px; }
+
+    /* Texto fluido para móvil */
+    .hero-content-left .hero-title { 
+        font-size: clamp(2.2rem, 8vw, 3rem); 
+        width: 100%; 
+        word-wrap: break-word; 
+    }
+
+    /* Video en móvil (se ve como video normal, no teléfono) */
+    .phone-frame {
+        width: 100%; 
+        max-width: 100%;
+        height: auto; 
+        aspect-ratio: 16/9; 
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+    
+    .promo-box-gold, .benefit-box { 
+        text-align: center; 
+        border-left: none; 
+        border-top: 3px solid var(--tech-cyan); 
+    }
+    .price-tag { right: 50%; transform: translateX(50%) rotate(0deg); top: -18px; }
 }
+
 @media (max-width: 768px) {
     .portal-grid { grid-template-columns: 1fr; }
-    .dj-grid { padding: 0 15px; grid-template-columns: 1fr; }
-    .btn-whatsapp-giant { width: 90%; padding: 12px 15px; font-size: 0.9rem; justify-content: center; margin: 0 auto; }
-    .btn-whatsapp-giant i { font-size: 1.2rem !important; }
-    .hero-buttons { flex-direction: column; gap: 15px; }
-    .btn-hero-green, .btn-hero-outline { width: 100%; text-align: center; justify-content: center; }
-
-    /* --- ARREGLO PARA LA X EN MÓVIL --- */
-    .close-video {
-        top: 15px;
-        right: 15px;
-        font-size: 35px;
-        background: rgba(0,0,0,0.6); /* Fondo oscurito para que se vea siempre */
-        border-radius: 50%;
-        width: 45px; /* Tamaño fijo fácil de tocar */
-        height: 45px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-/* === CORRECCIONES PARA MÓVIL (Videos y Textos) === */
-@media (max-width: 768px) {
-
-    /* 1. Ajustar Títulos Gigantes */
-    .hero-content h1 {
-        font-size: 2.2rem !important; /* Reduce el tamaño del texto "Audio Spots" */
-    }
-
-    /* 2. Centrar y ajustar Videos/Iframes (YouTube) */
-    iframe, video, .hero-content iframe {
-        max-width: 100% !important; /* Que no se salga de la pantalla */
-        width: 100% !important;     /* Ocupa el ancho disponible */
-        height: auto !important;    /* Ajusta la altura automáticamente */
-        aspect-ratio: 16/9;         /* Mantiene proporción de video normal */
-        margin: 0 auto !important;  /* Centrado automático */
-        display: block;
-    }
-
-    /* Caso especial: Si es un YouTube Short (Vertical) */
-    iframe[src*="shorts"], .vertical-video {
-        aspect-ratio: 9/16 !important; /* Proporción vertical */
-        max-height: 500px !important;  /* Que no sea eterno hacia abajo */
-    }
-
-    /* 3. Ajustar la Tarjeta de Oferta (Paquete 2 en 1) */
-    .offer-card, .paquete-card { 
-        /* Asumiendo que usaste una clase para esa tarjeta nueva */
-        width: 100% !important;
-        margin: 1rem 0 !important;
-        padding: 1.5rem !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 4. Asegurar que todo el Hero esté centrado */
-    .hero-content {
-        padding: 1rem !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centra horizontalmente */
-        text-align: center;
-    }
-}
-
-/* =======================================================
-   CORRECCIÓN FINAL MÓVIL (Centrado y Ajuste Automático)
-   ======================================================= */
-@media (max-width: 768px) {
-    
-    /* 1. Eliminar desplazamiento lateral fantasma */
-    html, body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-        position: relative;
-    }
-
-    /* 2. Ajustar Título Gigante "PUBLICITARIOS" */
-    .hero-content h1 {
-        /* Usamos 'vw' para que la letra se encoja si la pantalla es pequeña */
-        font-size: 8vw !important; 
-        line-height: 1.1 !important;
-        margin-bottom: 15px !important;
-        text-align: center !important;
-        width: 100% !important;
-    }
-
-    /* 3. Centrar Contenedor Hero */
-    .hero-content {
-        padding: 0 20px !important; /* Margen de seguridad a los lados */
-        width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important; /* Eje Horizontal */
-        justify-content: center !important; /* Eje Vertical */
-        text-align: center !important;
-        box-sizing: border-box !important; /* Evita que el padding sume ancho */
-    }
-
-    /* 4. Ajustar Tarjeta de Paquete (Borde Amarillo) */
-    /* Esto detecta el div del paquete por su estilo o contenido */
-    .hero-content div {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-
-    /* 5. Asegurar que los textos no se peguen a los bordes */
-    .hero-content p, .hero-content li {
-        font-size: 1rem !important;
-        padding: 0 5px !important;
-    }
-
+    .dj-grid { grid-template-columns: 1fr; }
+    .btn-whatsapp-giant { width: 90%; padding: 15px; font-size: 1rem; }
+    .close-video { top: 15px; right: 15px; background: rgba(0,0,0,0.6); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
 }
