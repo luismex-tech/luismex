@@ -359,3 +359,53 @@ img { max-width: 100%; display: block; }
         width: 100% !important;
     }
 }
+/* =======================================================
+   CORRECCIÓN FINAL MÓVIL (Centrado y Ajuste Automático)
+   ======================================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Eliminar desplazamiento lateral fantasma */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    /* 2. Ajustar Título Gigante "PUBLICITARIOS" */
+    .hero-content h1 {
+        /* Usamos 'vw' para que la letra se encoja si la pantalla es pequeña */
+        font-size: 8vw !important; 
+        line-height: 1.1 !important;
+        margin-bottom: 15px !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    /* 3. Centrar Contenedor Hero */
+    .hero-content {
+        padding: 0 20px !important; /* Margen de seguridad a los lados */
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Eje Horizontal */
+        justify-content: center !important; /* Eje Vertical */
+        text-align: center !important;
+        box-sizing: border-box !important; /* Evita que el padding sume ancho */
+    }
+
+    /* 4. Ajustar Tarjeta de Paquete (Borde Amarillo) */
+    /* Esto detecta el div del paquete por su estilo o contenido */
+    .hero-content div {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* 5. Asegurar que los textos no se peguen a los bordes */
+    .hero-content p, .hero-content li {
+        font-size: 1rem !important;
+        padding: 0 5px !important;
+    }
+}
